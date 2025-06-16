@@ -1,5 +1,5 @@
 <p class="text-center font-normal">
-    <strong>Dự án đã biết về thông tin Sở GD&ĐT Bắc Ninh cộng sai điểm thi chuyên. <br> Thông tin sẽ được cập nhật khi Sở cộng lại điểm cho thí sinh trên trang tra điểm chính thức.</strong><br>
+    <strong>Dự án đã biết về thông tin Sở GD&ĐT Bắc Ninh cộng sai điểm thi chuyên. <br> Thông tin sẽ được cập nhật khi Sở xác nhận thông tin trên và cộng lại điểm cho thí sinh trên trang tra điểm chính thức.</strong><br>
     <strong>Lưu ý:</strong> thông tin chỉ nhằm mục đích tham khảo. Dự án Pelican không chịu trách
     nhiệm hay đảm bảo bất kỳ điều gì về thông tin sau đây.<br />
     Dự án không "hack" hay xâm nhập trái phép cơ sở dữ liệu của Sở, toàn bộ dữ liệu đều được lấy, lần
