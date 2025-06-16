@@ -7,7 +7,6 @@ build/
 *.so
 output.html
 output.pdf
-output/
 rev.html
 tra.ipynv
 # Distribution / packaging
