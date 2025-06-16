@@ -1,0 +1,20 @@
+#!/usr/bin/sh
+if [ "$1" = "pdf" ]; then
+    python3 generators/pdf.py
+fi
+if [ "$1" = "json" ]; then
+    python3 generators/jsongen.py
+fi
+if [ "$1" = "csv" ]; then
+    python3 generators/csv.py
+fi
+if [ "$1" = "xlsx" ]; then
+    python3 generators/xlsx.py
+fi
+if [ "$1" = "ods" ]; then
+    python3 generators/ods.py
+fi
+if [ "$1" = "all" ]; then
+    python3 generators/pdf.py & python3 generators/json.py & python3 generators/csv.py & python3 generators/xlsx.py & python3 generators/ods.py
+fi
+

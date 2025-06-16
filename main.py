@@ -1,3 +1,19 @@
+# Project Pelican
+# Copyright (C) 2025  FalcoLabs Research
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import PIL.Image
 import aiohttp
 import asyncio
@@ -6,6 +22,9 @@ import cv2
 import numpy as np
 import base64
 import PIL
+import os
+import json
+import traceback
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 from io import BytesIO
@@ -13,6 +32,7 @@ from timeit import default_timer as timer
 
 ua = UserAgent()
 CAPTCHA_ID, CAPTCHA = "", ""
+RESULTS = {}
 
 
 async def extract_token(session: aiohttp.ClientSession) -> str:
@@ -59,8 +79,8 @@ async def refresh_captcha(session: aiohttp.ClientSession):
     captcha = solve_captcha(captcha_b64)
 
     global CAPTCHA_ID, CAPTCHA
-    CAPTCHA_ID = captchaID
-    CAPTCHA = captcha
+    CAPTCHA_ID, CAPTCHA = captchaID, captcha
+    # return captchaID, captcha
 
 
 async def extract_captcha(session: aiohttp.ClientSession):
@@ -80,32 +100,124 @@ async def get_info(
         },
         data=f"MA_CAP_HOC=04&MA_HOC_SINH={sbd}&CaptchaTime={captchaID}&CaptchaInput={captcha}",
     ) as r:
-        return await r.json()
+        try:
+            return await r.json()
+        except:
+            session.cookie_jar.clear()
+            session.headers.clear()
+            await refresh_captcha(session)
+            return {"ERROR": f"ERROR: {await r.content.read()}"}
 
 
-async def lookup(session: aiohttp.ClientSession, sbd: str) -> dict:
-    print(f"[*] lookup {sbd}")
+def or_zero(a) -> float:
+    if a == "":
+        return 0.0
+    return float(a)
+
+
+async def lookup(
+    session: aiohttp.ClientSession, sbd: str, captchaID: str = "", captcha: str = ""
+) -> dict:
+    global RESULTS
     token = await extract_token(session)
     tries = 0
-    while tries < 3:
-        info = await get_info(session, sbd, token, CAPTCHA_ID, CAPTCHA)
-        if info["message"] == "Sai mã bảo vệ.":
-            print(f"  [-] attempt #{tries+1}: wrong captcha.")
-            await refresh_captcha(session)
-        else:
-            print(f"  [+] attempt #{tries+1}: success")
-            return info
+    while tries < 10:
+        info = {}
+        try:
+            info = await get_info(session, sbd, token, CAPTCHA_ID, CAPTCHA)
+            if info["message"] == "Sai mã bảo vệ.":
+                print(f"  [-] {sbd} attempt #{tries+1}: wrong captcha.")
+            elif not info["result"]:
+                print(f"  [-] {sbd} attempt #{tries+1}: {info["message"]}.")
+            else:
+                print(f"  [+] {sbd} attempt #{tries+1}: success")
+                async with session.get(
+                    f"http://tsdaucap.bacninh.edu.vn/TraCuu/KetQuaTraCuuTuyenSinh10BacNinh?key={info["key"]}"
+                ) as req:
+                    scrape = BeautifulSoup(await req.text(), features="html.parser")
+                    rows = scrape.find_all("tr")
+                    dr = []
+                    for row in rows[1:]:
+                        try:
+                            dr.append(
+                                str(
+                                    list(
+                                        filter(lambda x: x != "\n", list(row.children))
+                                    )[1]
+                                )[4:-5]
+                            )
+                        except IndexError:
+                            pass
+                    # print(dr)
+                    # print(
+                    #     {
+                    #         "sbd": dr[0],
+                    #         "name": dr[1],
+                    #         "school": dr[6],
+                    #         "birthdate": dr[3],
+                    #         "math": or_zero(dr[16]),
+                    #         "lit": or_zero(dr[10]),
+                    #         "eng": or_zero(dr[13]),
+                    #         "gifted": or_zero(dr[18]),
+                    #         "totalNorm": or_zero(dr[17][8:-9]),
+                    #         "totalGifted": or_zero(dr[19][8:-9]),
+                    #     }
+                    # )
+                    return {
+                        "sbd": dr[0],
+                        "name": dr[1],
+                        "school": dr[6],
+                        "birthdate": dr[3],
+                        "math": or_zero(dr[16]),
+                        "lit": or_zero(dr[10]),
+                        "eng": or_zero(dr[13]),
+                        "gifted": or_zero(dr[18]),
+                        "totalNorm": or_zero(dr[17][8:-9]),
+                        "totalGifted": or_zero(dr[19][8:-9]),
+                    }
+        except:
+            traceback.print_exc()
+            print(list(zip(range(0, len(dr) + 1), dr)))
+            print(f"  [-] {sbd} attempt FAILED #{tries+1} info", info)
+            exit(1)
+        await refresh_captcha(session)
         tries += 1
-    print(f"  [!] tried 3 times, giving up on {sbd}")
+    print(f"  [!] tried 10 times, giving up on {sbd}")
     with open("failed.txt", "a") as f:
         f.write(f"{sbd}\n")
         return {}
 
 
 async def main():
-    async with aiohttp.ClientSession() as session:
+    global RESULTS
+    async with aiohttp.ClientSession(
+        connector=aiohttp.TCPConnector(limit=200)
+    ) as session:
         await refresh_captcha(session)
-        print(await lookup(session, "023452"))
+        with open(f"lists/{RESULTS['class']}.txt", "r", encoding="utf8") as f:
+            response = []
+            for i in f.read().strip().splitlines():
+                r = await lookup(session, i.strip())
+                response.append(r)
+            RESULTS["result"] += sorted(
+                response, key=lambda x: x["totalGifted"], reverse=True
+            )
+            RESULTS["candidates"] = len(RESULTS["result"])
+            RESULTS["rate"] = 35 / len(RESULTS["result"])
+            RESULTS["prediction"] = RESULTS["result"][34]["totalGifted"]
+            with open(
+                f"results/{RESULTS['class']}.json", "w", encoding="utf8"
+            ) as resultfile:
+                resultfile.write(json.dumps(RESULTS, ensure_ascii=False))
 
 
-asyncio.run(main())
+for i in os.listdir("lists"):
+    RESULTS = {
+        "class": i[:-4],
+        "candidates": 0,
+        "prediction": 50.00,
+        "rate": 0,
+        "result": [],
+    }
+    asyncio.run(main())
+    print(i, f"done, writing result/{i[:-4]}.json")

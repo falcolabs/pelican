@@ -1,0 +1,262 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"> -->
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        @page {
+            size: A4;
+            margin: 0mm;
+        }
+
+
+        body {
+            background-color: #F9F5F2;
+            font-family: "Raleway";
+        }
+    </style>
+    <style>
+        .datatable {
+            font-weight: 500;
+            width: 100%;
+            -webkit-font-variant-ligatures: no-common-ligatures;
+            break-inside: avoid;
+            column-gap: 5px;
+            border: solid 1px #bebebe;
+        }
+
+        .datatable tr:nth-child(even) {
+            background-color: #F0F0F0;
+        }
+
+        .datatable tr {
+            align-items: center;
+            text-align: center;
+            vertical-align: middle;
+            height: 35px;
+        }
+
+        .datatable td,
+        .datatable th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-right: solid 1px #bebebe;
+            border-left: solid 1px #bebebe;
+        }
+
+        .left {
+            text-align: start;
+        }
+
+        .code {
+            font-family: "Liga SFMono Nerd Font";
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+    <title>Project Pelican - Bảng điểm $displayname CBN 2025</title>
+    <meta name="description" content="Bảng điểm cho $displayname vào THPT Chuyên Bắc Ninh năm 2025.">
+</head>
+
+<body>
+    <div
+        style="margin-left: 45px; margin-right: 45px; margin-bottom: 25px; display: flex; flex-direction: column; align-items: center;">
+        <div
+            style="margin-top: 45px; margin-bottom: 25px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; height: 44px; width: 100%;">
+            <img src="web/static/logo.svg" />
+            <img src="web/static/falcologo.svg" />
+        </div>
+        <div
+            style="display: flex; flex-direction: row; align-items: start; justify-content: space-between; width: 75%;">
+            <div style="display: flex; flex-direction: row; gap: 5px; justify-content: start; align-items: start;">
+                <div style="display: flex; flex-direction: row; justify-content: start; align-items: start;">
+                    $classlogo
+                </div>
+                <div style="font-size: 20px;">
+                    Khối
+                    <br />
+                    <span style="font-weight: bold; white-space: nowrap; color: $color;">$displayname</span>
+                    <p style="white-space: nowrap; margin-top: 5px; font-size: 10px; font-weight: 600; color: $color;">
+                        $slogan
+                    </p>
+                </div>
+            </div>
+            <div
+                style="display: flex; flex-direction: row; gap: 25px; justify-content: center; align-items: center; margin-top: 7px;">
+                <div>
+                    <p style="white-space: nowrap; font-size: 10px; font-weight: 600;">SỐ THÍ SINH</p>
+                    <p style="font-family: Montserrat;font-size: 24px; font-weight: 600;">$candidates</p>
+                </div>
+                <div>
+                    <p style="white-space: nowrap; font-size: 10px; font-weight: 600;">ĐIỂM ĐỖ DỰ ĐOÁN</p>
+                    <p style="font-family: Montserrat;font-size: 24px; font-weight: 600;">$prediction
+                    </p>
+                </div>
+                <div>
+                    <p style="white-space: nowrap; font-size: 10px; font-weight: 600;">TỈ LỆ ĐỖ</p>
+                    <p style="font-family: Montserrat;font-size: 24px; font-weight: 600;">$rate</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #FFF; width: 100%; overflow: hidden;">
+            <table class="datatable">
+                <tr>
+                    <th style="font-weight: 600; width: 5%">STT</th>
+                    <th style="font-weight: 600; width: inherit">SBD</th>
+                    <th class="left" style="font-weight: 600; width: 23%">Tên thí sinh</th>
+                    <th class="left" style="font-weight: 600; width: 20%">Trường</th>
+                    <th style="font-weight: 600; width: inherit">Toán</th>
+                    <th style="font-weight: 600; width: inherit">Văn</th>
+                    <th style="font-weight: 600; width: inherit">Anh</th>
+                    <th style="font-weight: 600; width: inherit">Chuyên</th>
+                    <th style="font-weight: 600; width: inherit">Tổng chuyên</th>
+                </tr>
+                $tabledata
+            </table>
+        </div>
+    </div>
+
+</body>

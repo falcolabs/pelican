@@ -26,6 +26,10 @@ jobs:
         run: |
             npm run build
 
+      - name: Copy assets
+        run: |
+            cp results/* ./build/data/
+
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
