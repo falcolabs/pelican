@@ -18,13 +18,13 @@ jobs:
             cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: cd web && npm install
 
       - name: build
         env:
             BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-            npm run build
+            cd web && npm run build
 
       - name: Copy assets
         run: |
