@@ -117,7 +117,7 @@ PAGE_BREAK = """
 
 
 TEMPLATE_LOGO_SINGLE = """
-<div style="transform: scale(0.6) translateY(-35%); ">
+<div style="transform: scale(0.6) translateY(-35%); $hidehan">
     <svg xmlns="http://www.w3.org/2000/svg" width="43" height="76" viewBox="0 0 43 76" fill="none">
         <g clip-path="url(#clip0_4_444)">
             <path d="M0 65.45L18.5292 55.2188L36.8287 65.5456L18.4963 76L0 65.45Z" fill=$color />
@@ -196,7 +196,7 @@ def gen_table(data):
 
 def main():
     content = {}
-    for c in os.listdir("results"):
+    for c in ["han.json"]:
         cn = c[:-5]
         if cn in ("td1", "ndd"):
             continue
@@ -214,14 +214,17 @@ def main():
                     else " ".join(data["slogan"])
                 ),
             )
+            
             .replace("$candidates", str(content[data["codename"]]["candidates"]))  # type: ignore
             .replace("$prediction", f"{content[data["codename"]]["prediction"]:.2f}")  # type: ignore
             .replace("$rate", f"{(content[data["codename"]]["rate"] * 100):.2f}" + "%")  # type: ignore
             .replace("$tabledata", gen_table(content[cn]["result"]))
         )
         if isinstance(data["color"], str):
-            o = o.replace("$classlogo", TEMPLATE_LOGO_SINGLE).replace(
-                "$color", data["color"]
+            o = (
+                o.replace("$classlogo", TEMPLATE_LOGO_SINGLE)
+                .replace("$color", data["color"])
+                .replace("$hidehan", "display: none;" if cn == "han" else "")
             )
         else:
             o = (
