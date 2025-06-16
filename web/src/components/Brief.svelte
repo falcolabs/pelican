@@ -1,5 +1,6 @@
 <script lang="ts">
     let { color, displayname, slogan, stats } = $props();
+    console.log(displayname == "Chuyên Hàn");
 </script>
 
 <div class="flex flex-col gap-4 lg:flex-row lg:justify-between lg:gap-12">
@@ -35,7 +36,11 @@
         <div class="text-4xl leading-9">
             Khối
             <br />
-            <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
+            <span
+                class="font-bold"
+                style={"color:" + displayname == "Chuyên Hàn" ? "#000000" : color + ";"}
+                >{displayname}</span
+            >
             <p
                 class="text-lg font-semibold"
                 style={"color:" + displayname == "Chuyên Hàn" ? "#000000" : color + ";"}

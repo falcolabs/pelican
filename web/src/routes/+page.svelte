@@ -29,6 +29,7 @@
                         height="76"
                         viewBox="0 0 43 76"
                         fill="none"
+                        style={`display: ${codename === "han" ? "none" : "block"}`}
                     >
                         <g clip-path="url(#clip0_4_444)">
                             <path
@@ -84,7 +85,6 @@
                         height="76"
                         viewBox="0 0 43 76"
                         fill="none"
-                        style={`display: ${codename === "han" ? "none" : "block"}`}
                     >
                         <g clip-path="url(#clip0_4_444)">
                             <path
