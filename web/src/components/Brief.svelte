@@ -53,7 +53,7 @@
         </div>
         <div>
             <p class="text-lg font-semibold">TỈ LỆ ĐỖ</p>
-            <p class="font-[Montserrat] text-5xl font-semibold">{stats.rate * 100}%</p>
+            <p class="font-[Montserrat] text-5xl font-semibold">{(stats.rate * 100).toFixed(2)}%</p>
         </div>
     </div>
 </div>

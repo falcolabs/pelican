@@ -25,7 +25,7 @@ jobs:
 
       - name: Copy assets
         run: |
-            cp results/* ./build/data/
+            cp output/* ./build/data/
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
