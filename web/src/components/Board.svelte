@@ -40,12 +40,12 @@
     >
     {#each data.result as row, i}
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 1 / 1; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{i + 1}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 2 / 2; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.sbd}</span
         >
@@ -65,32 +65,32 @@
             >{row.birthdate}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 6 / 6; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.totalGifted}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 7 / 7; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.totalNorm}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 8 / 8; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.math}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 9 / 9; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.lit}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 10 / 10; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.eng}</span
         >
         <span
-            class="flex min-h-11 items-center justify-center"
+            class="code flex min-h-11 items-center justify-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 11 / 11; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
             >{row.gifted}</span
         >
@@ -100,11 +100,15 @@
 <style>
     .tbl {
         overflow: scroll;
-        grid-template-columns: 7% 20% 20% auto auto auto auto auto auto;
+        grid-template-columns: 7% 7% 20% 20% auto auto auto auto auto auto;
         border-radius: 18px;
         border: 1px solid #000;
         background: #fff;
         box-shadow: 4px 4px 0px 0px #000;
         margin-bottom: 1rem;
+    }
+
+    .code {
+        font-family: "Liga SFMono Nerd Font", "SF Mono", monospace;
     }
 </style>
