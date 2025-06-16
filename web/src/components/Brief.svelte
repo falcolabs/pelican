@@ -38,7 +38,7 @@
             <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
             <p
                 class="text-lg font-semibold"
-                style={"color:" + color === "#FCEEE3" ? "#000000" : color + ";"}
+                style={"color:" + displayname == "Chuyên Hàn" ? "#000000" : color + ";"}
             >
                 {slogan}
             </p>
