@@ -16,7 +16,7 @@
     <Disclaimer />
     <br />
     <div class="flex flex-col flex-wrap items-center justify-center gap-4 lg:flex-row">
-        {#each [{ classes: 2, color: ["#EBEC94", "#A700FE"], displayname: "Chuyên Văn", codename: "van" }, { classes: 1, color: "#FE0000", displayname: "Chuyên Tin", codename: "tin" }, { classes: 1, color: "#3F5FFF", displayname: "Chuyên Lý", codename: "ly" }, { classes: 1, color: "#33B7C2", displayname: "Chuyên Hóa", codename: "hoa" }, { classes: 2, color: ["#109E14", "#72001A"], displayname: "Chuyên Toán", codename: "toan" }, { classes: 1, color: "#754119", displayname: "Chuyên Sử", codename: "su" }, { classes: 1, color: "#6D7075", displayname: "Chuyên Địa", codename: "dia" }, { classes: 1, color: "#FE6603", displayname: "Chuyên Sinh", codename: "sinh" }, { classes: 1, color: "#DA215B", displayname: "Chuyên Anh", codename: "anh" }, { classes: 1, color: "#010101", displayname: "Chuyên Trung", codename: "trung" }, { classes: 1, color: "#010101", displayname: "Chuyên Hàn", codename: "han" }] as { classes, color, displayname, codename }}
+        {#each [{ classes: 2, color: ["#EBEC94", "#A700FE"], displayname: "Chuyên Văn", codename: "van" }, { classes: 1, color: "#FE0000", displayname: "Chuyên Tin", codename: "tin" }, { classes: 1, color: "#3F5FFF", displayname: "Chuyên Lý", codename: "ly" }, { classes: 1, color: "#33B7C2", displayname: "Chuyên Hóa", codename: "hoa" }, { classes: 2, color: ["#109E14", "#72001A"], displayname: "Chuyên Toán", codename: "toan" }, { classes: 1, color: "#754119", displayname: "Chuyên Sử", codename: "su" }, { classes: 1, color: "#6D7075", displayname: "Chuyên Địa", codename: "dia" }, { classes: 1, color: "#FE6603", displayname: "Chuyên Sinh", codename: "sinh" }, { classes: 1, color: "#DA215B", displayname: "Chuyên Anh", codename: "anh" }, { classes: 1, color: "#010101", displayname: "Chuyên Trung", codename: "trung" }, { classes: 1, color: "#FCEEE3", displayname: "Chuyên Hàn", codename: "han" }] as { classes, color, displayname, codename }}
             {#if classes === 1}
                 <a
                     href={`/chuyen${codename}`}
@@ -167,7 +167,12 @@
                     <div class="text-2xl leading-7 md:text-4xl md:leading-9">
                         Khối
                         <br />
-                        <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
+
+                        <span
+                            class="font-bold"
+                            style={"color:" + color === "#FCEEE3" ? "#000000" : color + ";"}
+                            >{displayname}</span
+                        >
                     </div>
                 </a>
             {/if}
