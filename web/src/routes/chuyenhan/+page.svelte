@@ -2,7 +2,7 @@
     import NavBar from "../../components/NavBar.svelte";
     import ScoreBoard from "../../components/ScoreBoard.svelte";
 
-    const COLOR = "#F9F5F2";
+    const COLOR = "#000000";
     const CODENAME = "han";
     const DISPLAY_NAME = "Chuyên Hàn";
     const SLOGAN = "";

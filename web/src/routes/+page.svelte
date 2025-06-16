@@ -29,7 +29,7 @@
                         height="76"
                         viewBox="0 0 43 76"
                         fill="none"
-                        style={`display: ${codename === "han" ? "none" : "block"}`}
+                        style="display: none;"
                     >
                         <g clip-path="url(#clip0_4_444)">
                             <path
@@ -70,7 +70,7 @@
                     <div class="text-2xl leading-7 md:text-4xl md:leading-9">
                         Khối
                         <br />
-                        <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
+                        <span class="font-bold" style="color: black;">{displayname}</span>
                     </div>
                 </a>
             {:else}
@@ -85,6 +85,7 @@
                         height="76"
                         viewBox="0 0 43 76"
                         fill="none"
+                        style="display: none;"
                     >
                         <g clip-path="url(#clip0_4_444)">
                             <path
@@ -128,6 +129,7 @@
                         height="76"
                         viewBox="0 0 43 76"
                         fill="none"
+                        style="display: none;"
                     >
                         <g clip-path="url(#clip0_4_444)">
                             <path
@@ -168,7 +170,7 @@
                     <div class="text-2xl leading-7 md:text-4xl md:leading-9">
                         Khối
                         <br />
-                        <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
+                        <span class="font-bold" style="color: black;">{displayname}</span>
                     </div>
                 </a>
             {/if}
