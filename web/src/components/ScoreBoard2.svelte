@@ -5,6 +5,7 @@
     import Board from "./Board.svelte";
     import Seo from "./SEO.svelte";
     import Footer from "./Footer.svelte";
+    import Disclaimer from "./Disclaimer.svelte";
 
     let { color, codename, displayname, slogan } = $props();
     let data = $state(undefined);
@@ -38,6 +39,7 @@
                 {/each}
             </div>
         </div>
+        <Disclaimer />
         <div class="hidden w-full md:block">
             <Board {data} />
         </div>

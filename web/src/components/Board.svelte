@@ -100,7 +100,7 @@
 <style>
     .tbl {
         overflow: scroll;
-        grid-template-columns: 7% 7% 20% 20% auto auto auto auto auto auto;
+        grid-template-columns: 3% 7% 20% 20% auto auto auto auto auto auto;
         border-radius: 18px;
         border: 1px solid #000;
         background: #fff;

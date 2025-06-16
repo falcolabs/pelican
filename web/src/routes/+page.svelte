@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Disclaimer from "../components/Disclaimer.svelte";
     import Footer from "../components/Footer.svelte";
     import NavBar from "../components/NavBar.svelte";
 </script>
@@ -8,6 +9,7 @@
     <h1 class="text-center text-2xl font-bold">
         Bấm vào ô của các khối chuyên để xem thông tin chi tiết và bảng điểm
     </h1>
+    <Disclaimer />
     <br />
     <div class="flex flex-col flex-wrap items-center justify-center gap-4 lg:flex-row">
         {#each [{ classes: 2, color: ["#EBEC94", "#A700FE"], displayname: "Chuyên Văn", codename: "van" }, { classes: 1, color: "#FE0000", displayname: "Chuyên Tin", codename: "tin" }, { classes: 1, color: "#3F5FFF", displayname: "Chuyên Lý", codename: "ly" }, { classes: 1, color: "#33B7C2", displayname: "Chuyên Hóa", codename: "hoa" }, { classes: 2, color: ["#109E14", "#109E14"], displayname: "Chuyên Toán", codename: "toan" }, { classes: 1, color: "#754119", displayname: "Chuyên Sử", codename: "su" }, { classes: 1, color: "#6D7075", displayname: "Chuyên Địa", codename: "dia" }, { classes: 1, color: "#FE6603", displayname: "Chuyên Sinh", codename: "sinh" }, { classes: 1, color: "#DA215B", displayname: "Chuyên Anh", codename: "anh" }, { classes: 1, color: "#010101", displayname: "Chuyên Trung", codename: "trung" }, { classes: 1, color: "#010101", displayname: "Chuyên Hàn", codename: "han" }] as { classes, color, displayname, codename }}
