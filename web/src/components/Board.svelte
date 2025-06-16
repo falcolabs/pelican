@@ -57,7 +57,7 @@
         <span
             class="flex min-h-11 items-center"
             style={`grid-row: ${i + 2} / span 1; grid-column: 4 / 4; ${i % 2 === 0 ? "background-color: #F0F0F0" : ""}`}
-            >{row.school}</span
+            >{row.school.replaceAll("&amp;", "&")}</span
         >
         <span
             class="flex min-h-11 items-center justify-center"
