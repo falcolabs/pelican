@@ -44,6 +44,7 @@
             <Board {data} />
         </div>
     </div>
+    <br /><br /><br />
     <div class="foot">
         <Footer />
     </div>
