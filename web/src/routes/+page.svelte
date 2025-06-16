@@ -4,6 +4,10 @@
     import NavBar from "../components/NavBar.svelte";
 </script>
 
+<svelte:head>
+    <title>Dự án Pelican - Dự đoán & bảng điểm CBN 2025</title>
+</svelte:head>
+
 <NavBar />
 <div class="px-7 pt-6 md:px-36 md:pt-12">
     <h1 class="text-center text-2xl font-bold">
