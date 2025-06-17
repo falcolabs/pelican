@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-    <title>Dự án Pelican - Dự đoán & bảng điểm tuyển sinh lớp 10 tỉnh Bắc Ninh 2025</title>
+    <title>Dự án Pelican - Dự đoán & bảng điểm tuyển sinh lớp 10</title>
 </svelte:head>
 
 <div class="px-7 pt-6 md:px-36 md:pt-12">

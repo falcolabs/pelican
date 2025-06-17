@@ -18,6 +18,12 @@
     <h1>Điều khoản sử dụng</h1>
     <h2>Chào mừng bạn đến với Dự án Pelican!</h2>
     <p>
+        Dự án không "hack" hay xâm nhập trái phép cơ sở dữ liệu của Sở, toàn bộ dữ liệu đều được
+        lấy, lần lượt từng số báo danh một, bằng trang tra điểm chính thức (xem <a
+        href="https://github.com/falcolabs/pelican">mã nguồn của dự án</a
+    >để tìm hiểu thêm). 
+    </p>
+    <p>
         Bằng việc sử dụng thông tin từ Dự án Pelican ("Dự Án"), bạn đồng ý với những điều khoản sau.
         Nếu bạn không đồng ý, không hiểu, hay không đồng ý một phần với những điều này, bạn không
         được sử dụng thông tin của Dự Án.

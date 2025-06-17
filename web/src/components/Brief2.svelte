@@ -10,6 +10,7 @@
             height="76"
             viewBox="0 0 43 76"
             fill="none"
+            style="display: none;"
         >
             <g clip-path="url(#clip0_4_444)">
                 <path
@@ -53,6 +54,7 @@
             height="76"
             viewBox="0 0 43 76"
             fill="none"
+            style="display: none;"
         >
             <g clip-path="url(#clip0_4_444)">
                 <path
@@ -93,8 +95,8 @@
         <div class="text-4xl leading-9">
             Khối
             <br />
-            <span class="font-bold" style={"color:" + color + ";"}>{displayname}</span>
-            <p class="text-lg font-semibold" style={"color:" + color + ";"}>
+            <span class="font-bold" style="color: black;">{displayname}</span>
+            <p class="text-lg font-semibold">
                 <span style={`color: ${color[0]}`}>{slogan[0]}</span>
                 <span style={`color: ${color[1]}`}>{slogan[1]}</span>
             </p>
