@@ -29,6 +29,7 @@ from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 from io import BytesIO
 from timeit import default_timer as timer
+from generators.pdfgen import CLASSDATA
 
 ua = UserAgent()
 CAPTCHA_ID, CAPTCHA = "", ""
@@ -50,7 +51,6 @@ def solve_captcha(captchab64: str) -> str:
     inp = PIL.Image.open(BytesIO(base64.b64decode(captchab64)))
     bg_filled = PIL.Image.new("RGBA", inp.size, "WHITE")
     bg_filled.paste(inp, (0, 0), inp)
-    bg_filled.save("a.png")
     grayscale = cv2.cvtColor(np.array(bg_filled)[:, :, ::-1].copy(), cv2.COLOR_BGR2GRAY)
     (h, w) = grayscale.shape[:2]
     grayscale = cv2.resize(grayscale, (w * 2, h * 4))
@@ -202,9 +202,14 @@ async def main():
             RESULTS["result"] += sorted(
                 response, key=lambda x: x["totalGifted"], reverse=True
             )
-            RESULTS["candidates"] = len(RESULTS["result"])
-            RESULTS["rate"] = 35 / len(RESULTS["result"])
-            RESULTS["prediction"] = RESULTS["result"][34]["totalGifted"]
+            if RESULTS["class"] not in ("td1", "ndd"):
+                if isinstance(CLASSDATA[RESULTS["class"]]["color"], str):
+                    admit = 35
+                else:
+                    admit = 70
+                RESULTS["candidates"] = len(RESULTS["result"])
+                RESULTS["rate"] = admit / len(RESULTS["result"])
+                RESULTS["prediction"] = RESULTS["result"][admit - 1]["totalGifted"]
             with open(
                 f"results/{RESULTS['class']}.json", "w", encoding="utf8"
             ) as resultfile:
@@ -212,6 +217,8 @@ async def main():
 
 
 for i in os.listdir("lists"):
+# for i in ["su.txt"]:
+    print(f"Starting class {i}")
     RESULTS = {
         "class": i[:-4],
         "candidates": 0,

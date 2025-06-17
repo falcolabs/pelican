@@ -9,6 +9,8 @@ output.html
 output.pdf
 rev.html
 tra.ipynv
+a.png
+results.old/
 # Distribution / packaging
 .Python
 build/
