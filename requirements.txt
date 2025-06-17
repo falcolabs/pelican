@@ -1,0 +1,11 @@
+# Images processing
+pillow
+opencv-python
+pytesseract
+
+# HTTP
+aiohttp
+fake-useragent
+
+# HTML Parsing
+beautifulsoup4
