@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <div class="md:gap-15 flex flex-row flex-wrap gap-8" style="row-gap: 1rem;">
+    <div class="flex flex-row flex-wrap gap-8 md:gap-15" style="row-gap: 1rem;">
         <div>
             <p class="text-lg font-semibold">SỐ THÍ SINH</p>
             <p class="font-[Montserrat] text-5xl font-semibold">{stats.candidates}</p>

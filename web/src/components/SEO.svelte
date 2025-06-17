@@ -9,7 +9,7 @@
         content={`Project Pelican: Điểm đỗ và bảng điểm ${displayname} CBN 2025`}
     />
     <meta name="og:url" content={`https://cbn.falcolabs.org/chuyen${codename}`} />
-    <meta name="og:image" content={`banners/chuyen${codename}.png`} />
+    <meta name="og:image" content={`/banners/chuyen${codename}.png`} />
     <meta name="og:site_name" content="Project Pelican" />
     <meta
         name="og:description"

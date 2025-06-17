@@ -13,7 +13,6 @@
     <title>Lưu ý & điều khoản sử dụng</title>
 </svelte:head>
 
-<NavBar />
 <div class="container px-7 md:px-36 md:pt-12">
     <p>Được cập nhật lần cuối vào ngày 16 tháng 6 năm 2025.</p>
     <h1>Điều khoản sử dụng</h1>
@@ -111,9 +110,6 @@
     <p>Được cập nhật lần cuối vào ngày 16 tháng 6 năm 2025.</p>
     <br /><br /><br />
 </div>
-<div>
-    <Footer />
-</div>
 
 <style>
     .container {
@@ -145,12 +141,6 @@
         font-size: 2rem;
         font-weight: bold;
         margin-top: 1rem !important;
-    }
-
-    h3 {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-top: 0.5rem !important;
     }
 
     p {

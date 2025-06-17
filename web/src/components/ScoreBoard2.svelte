@@ -20,7 +20,7 @@
 <Load until={data !== undefined}>
     <div class="flex min-h-[80vh] flex-col items-center justify-start">
         <Brief2 {color} {displayname} {slogan} stats={data} />
-        <h1 class="pb-1 pt-7 text-center text-2xl font-bold md:text-4xl">Bảng điểm chi tiết</h1>
+        <h1 class="pt-7 pb-1 text-center text-2xl font-bold md:text-4xl">Bảng điểm chi tiết</h1>
         <div class="flex w-full items-center justify-center">
             <div class="flex max-w-[70vw] flex-wrap justify-center gap-1.5 pb-3">
                 {#each ["json", "xlsx", "pdf", "csv", "ods"] as format}

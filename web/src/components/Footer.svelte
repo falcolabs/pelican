@@ -21,7 +21,8 @@
             <a
                 class="hover:underline"
                 aria-label="GitHub"
-                href="https://github.com/falcolabs/pelican"><i class="fa-brands fa-github fa-xl"></i></a
+                href="https://github.com/falcolabs/pelican"
+                ><i class="fa-brands fa-github fa-xl"></i></a
             >
             <a
                 class="hover:underline"
