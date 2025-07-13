@@ -1,0 +1,19 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+	--background-color: #f9f5f2;
+	--accent-color: #fceee3;
+}
+
+body {
+	background-color: var(--background-color);
+}
+
+* {
+	font-family: 'Inter', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
