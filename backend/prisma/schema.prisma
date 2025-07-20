@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Examinee {
+  // Basic information
+  id         String
+  yearId     String  @map("year_id")
+  year       Year    @relation(fields: [yearId], references: [id])
+  name       String
+  gender     Gender
+  birthDate  String  @map("birth_date")
+  birthPlace String? @map("birth_place")
+
+  // Secondary school information
+  oldClass  String? @map("old_class")
+  oldSchool String? @map("old_school")
+
+  // Applying information
+  generalSchoolId     String? @map("first_choice_school_id")
+  generalSchool       School? @relation(name: "general_school_relation", fields: [yearId, generalSchoolId], references: [yearId, id])
+  priorityPoint       Decimal @map("priority_point") @db.Decimal(4, 2)
+  bonusPoint          Decimal @map("bonus_point") @db.Decimal(4, 2)
+  literaturePoint     Decimal @map("literature_point") @db.Decimal(4, 2)
+  englishWPoint       Decimal @map("english_w_point") @db.Decimal(4, 2)
+  englishMCPoint      Decimal @map("english_mc_point") @db.Decimal(4, 2)
+  mathWPoint          Decimal @map("math_w_point") @db.Decimal(4, 2)
+  mathMCPoint         Decimal @map("math_mc_point") @db.Decimal(4, 2)
+  specializedSchoolId String? @map("specialized_school_id")
+  specializedSchool   School? @relation(name: "specialized_school_relation", fields: [yearId, specializedSchoolId], references: [yearId, id])
+  majorId             String? @map("major_id")
+  major               Major?  @relation(fields: [yearId, specializedSchoolId, majorId], references: [yearId, schoolId, id])
+  majorPoint          Decimal @map("major_point") @db.Decimal(4, 2)
+
+  @@id([yearId, id])
+  @@index([yearId, generalSchoolId])
+  @@index([yearId, specializedSchoolId, majorId])
+  @@index([yearId])
+  @@map("examinees")
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+model School {
+  id         String
+  yearId     String     @map("year_id")
+  year       Year       @relation(fields: [yearId], references: [id])
+  name       String
+  logoUrl    String     @map("logo_url")
+  schoolType SchoolType @map("school_type")
+
+  majors               Major[]
+  generalExaminees     Examinee[] @relation(name: "general_school_relation")
+  specializedExaminees Examinee[] @relation(name: "specialized_school_relation")
+
+  @@id([yearId, id])
+  @@index([yearId])
+  @@map("schools")
+}
+
+enum SchoolType {
+  SPECIALIZED
+  GENERAL
+}
+
+model Major {
+  id      String
+  yearId  String @map("year_id")
+  year    Year   @relation(fields: [yearId], references: [id])
+  name    String
+  logoUrl String @map("logo_url")
+
+  schoolId String @map("school_id")
+  school   School @relation(fields: [yearId, schoolId], references: [yearId, id])
+
+  examinees Examinee[]
+
+  @@id([yearId, schoolId, id])
+  @@index([yearId, schoolId])
+  @@map("majors")
+}
+
+model Year {
+  id String @id
+
+  stage Stage @default(WAITING)
+
+  schools   School[]
+  majors    Major[]
+  examinees Examinee[]
+
+  @@map("years")
+}
+
+enum Stage {
+  WAITING
+  GETTING
+  PROCESSING
+  READY
+}
