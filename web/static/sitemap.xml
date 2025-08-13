@@ -8,65 +8,61 @@
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyenanh</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyendia</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyenhan</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyenhoa</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyenly</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyensu</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyentin</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-
-        </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyentoan</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-            </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyentrung</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
-    </url>
-        <url>
+    <url>
         <loc>https://cbn.falcolabs.org/chuyenvan</loc>
         <lastmod>2025-7-06</lastmod>
         <changefreq>yearly</changefreq>

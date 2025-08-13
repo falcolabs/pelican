@@ -8,12 +8,12 @@ The following is a description of the project. Both versions are identical in me
 English description:
 > Project Pelican is a project that aims to gather scores data from Bac Ninh High School for the Gifted entrance exam in order to conduct research and allow students and parents to see trends related to this metric. 
 > Important notice: The Project uses legal means and public information to achieve this goal. No hacking, illegal penetration is used or ever permitted to be used to gather information for this project. 
-> The Project is licenced under the GNU General Public Licence, version 3. The source code lives at https://github.com/falcolabs/pelican.
+> The Project is licenced under the GNU Affero General Public Licence, version 3. The source code lives at https://github.com/falcolabs/pelican.
 
 Miêu tả tiếng Việt:
 > Dự án Pelican là dự án thu thập và nghiên cứu điểm thi vào trường THPT Chuyên Bắc Ninh. Dự án cho phép học sinh và phụ huynh nắm bắt được tình trạng cũng như xu hướng điểm thi qua từng năm.
 > Lưu ý quan trọng: Dự án không "hack" hay xâm nhập trái phép cơ sở dữ liệu của Sở, toàn bộ dữ liệu đều được lấy, lần lượt từng số báo danh một, bằng trang tra điểm chính thức.
-> Dự án được phân phối theo Giấy phép Công cộng GNU, phiên bản 3. Mã nguồn dự án: https://github.com/falcolabs/pelican.
+> Dự án được phân phối theo Giấy phép Công cộng GNU Affero, phiên bản 3. Mã nguồn dự án: https://github.com/falcolabs/pelican.
 
 
 ## Data
@@ -67,7 +67,7 @@ THE PROJECT HAS NEITHER THE CAPACITY NOR ABILITY TO KEEP ITS DATA UP-TO-DATE AT 
 
 THE PROJECT HAS NEVER BEEN, NEVER IS, AND WILL NEVER BE INTENDED TO SPREAD MISINFORMATION. PROJECT PELICAN IS NOT SPONSORED BY ANY OTHER ENTITIES, INCLUDING FALCOLABS RESEARCH.
 
-GNU PUBLIC LICENSE 3 DISCLAIMER:
+GNU AFFERO GENERAL PUBLIC LICENSE 3 DISCLAIMER:
 THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. SEE THE GNU AFFERO GENERAL PUBLIC LICENSE FOR MORE DETAILS.
 
 ## About FalcoLabs Research
